@@ -146,6 +146,61 @@
       <div class="body-wrap">
         
   
+    <article id="post-关于寄生组合式继承的思考和验证" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/30/关于寄生组合式继承的思考和验证/">关于寄生组合式继承的思考和验证</a>
+    </h1>
+  
+
+        <a href="/2016/11/30/关于寄生组合式继承的思考和验证/" class="archive-article-date">
+  	<time datetime="2016-11-30T12:29:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-30</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在阅读《javascript高级程序设计》中的寄生组合式继承的时候，我产生了一个疑问，经过inheritPrototype函数之后，到底是将superType的原型整体复制了一份给subType原型对象，还是真的实现了一个原型链。产生这个问题的原因是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function inheritPrototype(subType,superType)&#123;</div><div class="line">				var prototype = Object(superType.prototype);</div><div class="line">				prototype.constructor = subType;</div><div class="line">				subType.prototype = prototype;</div><div class="line">			&#125;</div></pre></td></tr></table></figure></p>
+<p>函数中的Object方法看上去像是新创造了一个对象，如果是新创造了一个对象的话，那么subType的原型就指向了一个新对象。还有一种可能就是单纯地使用Object方法（而不是通过构造函数的方式使用Object方法）只是创造了原对象（superType.prototype）的一个引用。<br>为此，做了一个验证,此验证的目的是检验Object方法作为普通函数调用（而不是构造函数）时的作用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var Timmy = &#123;name:&quot;Timmy&quot;,age:21&#125;;</div><div class="line">			var Timmy1 = Object(Timmy);</div><div class="line">			Timmy1.age = 22;</div><div class="line">			alert(Timmy.age);</div></pre></td></tr></table></figure></p>
+<p>浏览器显示的结果是22。此结果可以证明prototype与superType.prototype指向的其实是同一个对象。<br>所以我猜想，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">prototype.constructor = subType;</div></pre></td></tr></table></figure></p>
+<p>这行代码会让superType.prototype.constructor指向subType而不是superType！！！<br>于是做了以下实验：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">function inheritPrototype(subType,superType)&#123;</div><div class="line">				var prototype = Object(superType.prototype);</div><div class="line">				prototype.constructor = subType;</div><div class="line">				subType.prototype = prototype;</div><div class="line">			&#125;</div><div class="line">			function superType(name)&#123;</div><div class="line">				this.name = name;</div><div class="line">				this.color = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];</div><div class="line">			&#125;</div><div class="line">			superType.prototype.sayName = function()&#123;</div><div class="line">				alert(this.name);</div><div class="line">			&#125;</div><div class="line">			function subType(name,age)&#123;</div><div class="line">				superType.call(this,name);</div><div class="line">				this.age = age;</div><div class="line">			&#125;</div><div class="line">			inheritPrototype(subType,superType);</div><div class="line">			subType.prototype.sayAge = function()&#123;</div><div class="line">				alert(this.age);</div><div class="line">			&#125;</div><div class="line">			alert(superType.prototype.constructor);</div></pre></td></tr></table></figure></p>
+<p>果不其然，浏览器打印的结果是subType的函数声明。该结果证明，superType.prototype.constructor指向了subType。</p>
+<hr>
+<p>所以，我认为寄生式组合继承，就是将subType的原型直接指向了superType的原型。原型链的结果可能是不变的，但是原型链的结构与组合继承是不一样的。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/30/关于寄生组合式继承的思考和验证/#more">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
