@@ -146,6 +146,60 @@
       <div class="body-wrap">
         
   
+    <article id="post-用javascript写排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/01/用javascript写排序算法/">用javascript写排序算法</a>
+    </h1>
+  
+
+        <a href="/2016/12/01/用javascript写排序算法/" class="archive-article-date">
+  	<time datetime="2016-12-01T10:49:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-01</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天学习了冒泡排序和快速排序，阅读的是《啊哈！算法》。作者是用C语言描述的算法。看完之后，我用javascript敲了一遍。结果如下：</p>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function sort(myNum)&#123;</div><div class="line">	var temp = 0;</div><div class="line">	var flag = 0;</div><div class="line">	for(var i=0;i&lt;myNum.length-1;i++)&#123;</div><div class="line">		var flag = 0;</div><div class="line">		for(var j=0;j&lt;myNum.length-i;j++)&#123;</div><div class="line">			if(myNum[j]&gt;myNum[j+1])&#123;</div><div class="line">				flag = 1;</div><div class="line">				var temp = myNum[j];</div><div class="line">				myNum[j] = myNum[j+1];</div><div class="line">				myNum[j+1] = temp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		if(flag == 0)&#123;</div><div class="line">			break;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>冒泡排序的基本思想就是，每次比较两个相邻的元素如果它们的顺序错了，那就把它们交换。我写的这个算法，加了一个标志位，用来在排序结果已经正确的情况下将结果返回，提高算法效率。</p>
+<h2 id="快速排序（快排）"><a href="#快速排序（快排）" class="headerlink" title="快速排序（快排）"></a>快速排序（快排）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">function quickSort(array,left,right)&#123;</div><div class="line">	if(left&gt;right)&#123;</div><div class="line">		return;		                       //递归调用的返回条件</div><div class="line">	&#125;</div><div class="line">	var temp = array[left];</div><div class="line">	var i = left;</div><div class="line">	var j = right;</div><div class="line">	var t = 0;</div><div class="line">	while(i!=j)&#123;</div><div class="line">		while(array[j]&gt;=temp&amp;&amp;i&lt;j)&#123;        //从右侧向左找比基准数小的数</div><div class="line">			j--;</div><div class="line">		&#125;</div><div class="line">		while(array[i]&lt;=temp&amp;&amp;i&lt;j)&#123;		   //从左向右找比基准数大的数</div><div class="line">			i++;</div><div class="line">		&#125;</div><div class="line">		if(i&lt;j)&#123;                          </div><div class="line">			t = array[i];</div><div class="line">			array[i] = array[j];</div><div class="line">			array[j] = t;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	array[left] = array[i];</div><div class="line">	array[i] = temp;</div><div class="line">	quickSort(array,left,i-1);            //递归调用</div><div class="line">	quickSort(array,i+1,right);</div><div class="line">	return array;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>快速排序的基本思想是二分。每次找一个基准数，将数组分成两部分，基准数左边的部分全比基准数小，基准数右边的全比基准数大。然后再在这两部分里分别找基准数，然后再分。</p>
+<p>完整的代码我已经放到了我的github上：<br><a href="https://github.com/TimmyKingFree/algorithm" target="_blank" rel="external">https://github.com/TimmyKingFree/algorithm</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/01/用javascript写排序算法/#more">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-关于寄生组合式继承的思考和验证" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     

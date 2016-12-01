@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Timmy的博客</title>
+  <title>用javascript写排序算法 | Timmy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端前进的路上">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Timmy的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="今天学习了冒泡排序和快速排序，阅读的是《啊哈！算法》。作者是用C语言描述的算法。看完之后，我用javascript敲了一遍。结果如下：
+冒泡排序123456789101112131415161718function sort(myNum)&amp;#123;	var temp = 0;	var flag = 0;	for(var i=0;i&amp;lt;myNum.length-1;i++)&amp;#123;		va">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用javascript写排序算法">
+<meta property="og:url" content="http://yoursite.com/2016/12/01/用javascript写排序算法/index.html">
 <meta property="og:site_name" content="Timmy的博客">
-<meta property="og:description" content="前端前进的路上">
+<meta property="og:description" content="今天学习了冒泡排序和快速排序，阅读的是《啊哈！算法》。作者是用C语言描述的算法。看完之后，我用javascript敲了一遍。结果如下：
+冒泡排序123456789101112131415161718function sort(myNum)&amp;#123;	var temp = 0;	var flag = 0;	for(var i=0;i&amp;lt;myNum.length-1;i++)&amp;#123;		va">
+<meta property="og:updated_time" content="2016-12-01T11:09:26.497Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Timmy的博客">
-<meta name="twitter:description" content="前端前进的路上">
+<meta name="twitter:title" content="用javascript写排序算法">
+<meta name="twitter:description" content="今天学习了冒泡排序和快速排序，阅读的是《啊哈！算法》。作者是用C语言描述的算法。看完之后，我用javascript敲了一遍。结果如下：
+冒泡排序123456789101112131415161718function sort(myNum)&amp;#123;	var temp = 0;	var flag = 0;	for(var i=0;i&amp;lt;myNum.length-1;i++)&amp;#123;		va">
   
     <link rel="alternative" href="/atom.xml" title="Timmy的博客" type="application/atom+xml">
   
@@ -144,103 +148,113 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-用javascript写排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
         
   
+    <h1 class="article-title" itemprop="name">
+      用javascript写排序算法
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/01/用javascript写排序算法/" class="archive-article-date">
+
+        <a href="/2016/12/01/用javascript写排序算法/" class="archive-article-date">
   	<time datetime="2016-12-01T10:49:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-01</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/01/用javascript写排序算法/">用javascript写排序算法</a>
-    </h1>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天学习了冒泡排序和快速排序，阅读的是《啊哈！算法》。作者是用C语言描述的算法。看完之后，我用javascript敲了一遍。结果如下：</p>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function sort(myNum)&#123;</div><div class="line">	var temp = 0;</div><div class="line">	var flag = 0;</div><div class="line">	for(var i=0;i&lt;myNum.length-1;i++)&#123;</div><div class="line">		var flag = 0;</div><div class="line">		for(var j=0;j&lt;myNum.length-i;j++)&#123;</div><div class="line">			if(myNum[j]&gt;myNum[j+1])&#123;</div><div class="line">				flag = 1;</div><div class="line">				var temp = myNum[j];</div><div class="line">				myNum[j] = myNum[j+1];</div><div class="line">				myNum[j+1] = temp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		if(flag == 0)&#123;</div><div class="line">			break;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>冒泡排序的基本思想就是，每次比较两个相邻的元素如果它们的顺序错了，那就把它们交换。我写的这个算法，加了一个标志位，用来在排序结果已经正确的情况下将结果返回，提高算法效率。</p>
+<h2 id="快速排序（快排）"><a href="#快速排序（快排）" class="headerlink" title="快速排序（快排）"></a>快速排序（快排）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">function quickSort(array,left,right)&#123;</div><div class="line">	if(left&gt;right)&#123;</div><div class="line">		return;		                       //递归调用的返回条件</div><div class="line">	&#125;</div><div class="line">	var temp = array[left];</div><div class="line">	var i = left;</div><div class="line">	var j = right;</div><div class="line">	var t = 0;</div><div class="line">	while(i!=j)&#123;</div><div class="line">		while(array[j]&gt;=temp&amp;&amp;i&lt;j)&#123;        //从右侧向左找比基准数小的数</div><div class="line">			j--;</div><div class="line">		&#125;</div><div class="line">		while(array[i]&lt;=temp&amp;&amp;i&lt;j)&#123;		   //从左向右找比基准数大的数</div><div class="line">			i++;</div><div class="line">		&#125;</div><div class="line">		if(i&lt;j)&#123;                          </div><div class="line">			t = array[i];</div><div class="line">			array[i] = array[j];</div><div class="line">			array[j] = t;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	array[left] = array[i];</div><div class="line">	array[i] = temp;</div><div class="line">	quickSort(array,left,i-1);            //递归调用</div><div class="line">	quickSort(array,i+1,right);</div><div class="line">	return array;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>快速排序的基本思想是二分。每次找一个基准数，将数组分成两部分，基准数左边的部分全比基准数小，基准数右边的全比基准数大。然后再在这两部分里分别找基准数，然后再分。</p>
+<p>完整的代码我已经放到了我的github上：<br><a href="https://github.com/TimmyKingFree/algorithm" target="_blank" rel="external">https://github.com/TimmyKingFree/algorithm</a></p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        <div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode"></div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/11/30/关于寄生组合式继承的思考和验证/" class="archive-article-date">
-  	<time datetime="2016-11-30T12:29:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/30/关于寄生组合式继承的思考和验证/">关于寄生组合式继承的思考和验证</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/30/关于寄生组合式继承的思考和验证/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于寄生组合式继承的思考和验证</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/11/30/hello-world/" class="archive-article-date">
-  	<time datetime="2016-11-30T11:55:35.334Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/30/hello-world/">Hello World</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
 
 
       </div>
@@ -262,8 +276,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
